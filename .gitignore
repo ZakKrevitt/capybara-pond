@@ -1,0 +1,16 @@
+node_modules/
+dist/
+tmp/
+.DS_Store
+.impeccable/review/
+.vercel/
+.env
+.env.*
+!.env.example
+output/
+# Local planning and review records are not part of the game distribution.
+.impeccable/
+CAPYBARA_PLAN.md
+PRODUCT.md
+DESIGN.md
+VERIFICATION.md

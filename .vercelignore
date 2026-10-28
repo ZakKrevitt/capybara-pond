@@ -1,0 +1,14 @@
+.git/
+.github/
+.impeccable/
+node_modules/
+dist/
+tmp/
+output/
+.env
+.env.*
+CAPYBARA_PLAN.md
+PRODUCT.md
+DESIGN.md
+VERIFICATION.md
+tests/

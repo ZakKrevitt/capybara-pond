@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#eff0df" />
+    <meta name="description" content="A small, peaceful pond and seven very unhurried capybaras. Wander, hop, and share a little snack." />
+    <title>Capybara pond</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <main id="app">
+      <div id="world" aria-label="Interactive capybara pond"></div>
+      <header class="masthead">
+        <div class="identity"><span class="brand-mark" aria-hidden="true"></span><div><h1>Capybara pond<span class="title-dot">.</span></h1><p>A little room to do nothing.</p></div></div>
+        <div class="utilities">
+          <button id="world-toggle" class="utility world-toggle" aria-label="Landscape controls" aria-expanded="false" aria-controls="world-panel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18 9 8l4 6 3-4 5 8ZM16 4v2m4 1-2 1M4 4l2 2"/></svg><span>Landscape</span></button>
+          <button id="reset-view" class="utility" aria-label="Reset camera view" title="Reset camera view (R)"></button>
+          <button id="sound" class="utility" aria-label="Turn sound on" aria-pressed="false" title="Turn sound on"></button>
+          <button id="pause" class="utility" aria-label="Pause the pond" aria-pressed="false" title="Pause the pond"></button>
+        </div>
+      </header>
+      <section id="world-panel" class="world-panel" aria-label="Landscape controls" hidden>
+        <div class="panel-heading"><h2>A little world</h2><button id="world-close" aria-label="Close landscape controls"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button></div>
+        <div class="time-presets" role="group" aria-label="Time of day"><button data-time="0" aria-pressed="true">Day</button><button data-time="52" aria-pressed="false">Dusk</button><button data-time="100" aria-pressed="false">Night</button></div>
+        <input id="time-of-day" type="range" min="0" max="100" value="0" aria-label="Time of day" />
+        <div class="cycle-control"><button id="automatic-time" aria-pressed="true" title="An eight-minute day and night cycle">Automatic time</button><output id="day-period">Daytime</output></div>
+        <label class="range-label" for="breeze">Breeze <output id="breeze-value">Gentle</output></label><input id="breeze" type="range" min="0" max="100" value="45" />
+        <div class="weather-options"><button id="light-shafts" aria-pressed="true">Light shafts</button><button id="rain" aria-pressed="false">Rain</button></div>
+        <div class="world-actions"><button id="gather">Gather for snacks</button><button id="wake-frogs">Wake the frogs</button></div>
+        <p>Try clicking a frog beside the water.</p>
+      </section>
+      <div id="loading" class="loading" role="status"><span></span>Finding a quiet spot…</div>
+      <div id="error" class="error" hidden><h2>The pond couldn’t open.</h2><p>This scene needs WebGL 2. Try enabling hardware acceleration in your browser, then reload.</p><button id="reload">Try again</button></div>
+      <div id="invitation" class="invitation" aria-hidden="true">Press to pick up. Drag to carry.</div>
+      <div id="animal-menu" class="animal-menu" role="group" aria-label="Actions for the capybara" hidden>
+        <button id="animal-pet"><span class="menu-icon"></span>Pet</button>
+        <button id="animal-feed"><span class="menu-icon"></span>Feed</button>
+        <button id="animal-hop"><span class="menu-icon"></span>Hop</button>
+        <button id="animal-rest"><span class="menu-icon"></span><span class="menu-label">Lie down</span></button>
+        <button id="animal-roll"><span class="menu-icon"></span>Roll in grass</button>
+        <button id="animal-pond"><span class="menu-icon"></span><span class="menu-label">Visit pond</span></button>
+      </div>
+      <footer class="bottom-bar">
+        <div class="scene-note"><span class="status-dot"></span><span id="activity">Taking it slow</span></div>
+        <div class="controls" aria-label="Capybara actions">
+          <button id="jump" class="action" title="Make the capybara hop (Space)"><span class="icon"></span><span>Hop</span><kbd>Space</kbd></button>
+          <span class="control-divider" aria-hidden="true"></span>
+          <button id="feed" class="action" aria-pressed="false" title="Offer some greens (F)"><span class="icon"></span><span>Feed</span></button>
+          <span class="control-divider" aria-hidden="true"></span>
+          <button id="closer" class="action" aria-pressed="false" title="Take a closer look (C)"><span class="icon"></span><span class="button-label">Look closer</span></button>
+        </div>
+        <p class="gesture-hint">Press to lift · Drag to carry · Release to drop<br><span class="pan-hint">Drag ground to orbit · Scroll to zoom · Right-drag to pan</span></p>
+      </footer>
+      <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+      <div id="performance" hidden></div>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
